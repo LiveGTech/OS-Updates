@@ -1,0 +1,69 @@
+{
+    "version": "0.2.1",
+    "vernum": 2,
+    "circuit": "test",
+    "description": {
+        "en_GB": "This is an update used for testing purposes only.",
+        "fr_FR": "Il s'agit d'une mise à jour utilisée uniquement à des fins de test."
+    },
+    "fallbackLocale": "en_GB",
+    "minSupportedVernum": 1,
+    "minRecommendedVernum": 1,
+    "supportedPlatforms": [
+        "x86_64",
+        "arm64",
+        "pinephone",
+        "rpi"
+    ],
+    "packages": [
+        {
+            "name": "liveg-hello",
+            "version": "0.1.0"
+        }
+    ],
+    "preinstallScriptPath": "preinstall.sh",
+    "postinstallScriptPath": "postinstall.sh",
+    "rebootPath": "reboot.sh",
+    "rollbackPath": "rollback.sh",
+    "files": [
+        {
+            "path": "gshell-x86_64.AppImage",
+            "destinationPath": "/system/bin/gshell-update.AppImage",
+            "condition": "['x86_64'].includes(platform)"
+        },
+        {
+            "path": "gshell-arm64.AppImage",
+            "destinationPath": "/system/bin/gshell-update.AppImage",
+            "condition": "['arm64', 'pinephone'].includes(platform)"
+        },
+        {
+            "path": "gshell-armv7l.AppImage",
+            "destinationPath": "/system/bin/gshell-update.AppImage",
+            "condition": "['rpi'].includes(platform)"
+        },
+        {
+            "path": "hello-x86_64.txt",
+            "destinationPath": "/system/hello.txt",
+            "condition": "platform == 'x86_64'"
+        },
+        {
+            "path": "hello-arm64.txt",
+            "destinationPath": "/system/hello.txt",
+            "condition": "platform == 'arm64'"
+        },
+        {
+            "path": "hello-pinephone.txt",
+            "destinationPath": "/system/hello.txt",
+            "condition": "platform == 'pinephone'"
+        },
+        {
+            "path": "hello-rpi.txt",
+            "destinationPath": "/system/hello.txt",
+            "condition": "platform == 'rpi'"
+        },
+        {
+            "path": "hello.txt",
+            "destinationPath": "/system/hello-all.txt"
+        }
+    ]
+}

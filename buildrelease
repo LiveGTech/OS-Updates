@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+
+/*
+    LiveG OS Update Files
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech/os
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+const os = require("os");
+const fs = require("fs");
+const child_process = require("child_process");
+const mkdirp = require("mkdirp");
+
+const BOLD_TEXT = "\x1b[1m%s\x1b[0m";
+
+if (os.EOL != "\n") {
+    console.error("System must be POSIX-compliant");
+
+    process.exit(1);
+}
+
+mkdirp.sync("releases");
+
+var currentReleaseData = JSON.parse(fs.readFileSync("release.json"));
+
+currentReleaseData.releasedAt = Date.now();
+
+console.log(BOLD_TEXT, "Checking files...");
+console.log("");
+
+var fileStats = {total: 0, pass: 0, fail: 0};
+
+[
+    currentReleaseData.preinstallScriptPath,
+    currentReleaseData.postinstallScriptPath,
+    currentReleaseData.rebootPath,
+    currentReleaseData.rollbackPath,
+    ...currentReleaseData.files.map((file) => file.path)
+].forEach(function(path) {
+    fileStats.total++;
+
+    if (fs.existsSync(`files/${path}`)) {
+        fileStats.pass++;
+
+        console.log("\x1b[42m\x1b[37m%s\x1b[0m %s", " PASS ", path);
+    } else {
+        fileStats.fail++;
+
+        console.log("\x1b[41m\x1b[37m%s\x1b[0m %s", " FAIL ", path);
+    }
+});
+
+console.log("");
+console.log(BOLD_TEXT, `Out of ${fileStats.total} files, ${fileStats.pass} pass and ${fileStats.fail} fail`);
+
+if (fileStats.fail > 0) {
+    console.error("Cannot continue with nonexistent files");
+
+    process.exit(1);
+}
+
+console.log("");
+console.log(BOLD_TEXT, "Creating archive...");
+console.log("");
+
+currentReleaseData.archivePath = `${currentReleaseData.vernum}.tar.gz`;
+currentReleaseData.archiveMethod = "tarGzip";
+
+child_process.execSync(`tar -C files -czvf releases/${currentReleaseData.archivePath} .`, {stdio: "inherit"});
+
+currentReleaseData.archiveHash = child_process.execSync(`sha256sum releases/${currentReleaseData.archivePath}`).toString().split(" ")[0];
+currentReleaseData.archiveHashMethod = "sha256";
+
+console.log("");
+console.log(`Archive hash: ${currentReleaseData.archiveHash}`);
+
+console.log("");
+console.log(BOLD_TEXT, "Adding update configuration to index file...");
+console.log("");
+
+var indexData = {};
+
+try {
+    indexData = JSON.parse(fs.readFileSync("releases/index.json"));
+
+    console.log("Index file read");
+} catch (e) {
+    console.log("Couldn't open index file, so will create new data");
+}
+
+indexData.updates ||= [];
+indexData.updates = indexData.updates.filter((update) => update.vernum != currentReleaseData.vernum);
+
+indexData.updates.push(currentReleaseData);
+
+fs.writeFileSync("releases/index.json", JSON.stringify(indexData, null, 4));
+
+console.log("");
+console.log(BOLD_TEXT, "Signing index file...");
+console.log("");
+
+child_process.execSync("gpg --batch --yes --output releases/index.json.sig --armor --detach-sig releases/index.json", {stdio: "inherit"});
+
+console.log("");
+console.log(BOLD_TEXT, "Verifying index file signature...");
+console.log("");
+
+child_process.execSync("gpg --verify releases/index.json.sig releases/index.json", {stdio: "inherit"});
+
+console.log("");
+console.log(BOLD_TEXT, "Release build complete!");
