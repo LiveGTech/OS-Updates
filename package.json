@@ -1,0 +1,10 @@
+{
+    "name": "liveg-os-updates",
+    "version": "0.1.0",
+    "description": "Our update scripts and files used to release new versions of LiveG OS.",
+    "author": "LiveG Technologies",
+    "dependencies": {
+        "minimist": "^1.2.8",
+        "mkdirp": "^3.0.0"
+    }
+}

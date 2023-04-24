@@ -12,9 +12,12 @@
 const os = require("os");
 const fs = require("fs");
 const child_process = require("child_process");
-const mkdirp = require("mkdirp");
+const mkdirp = require("mkdirp").mkdirp;
+const minimist = require("minimist");
 
 const BOLD_TEXT = "\x1b[1m%s\x1b[0m";
+
+var argv = minimist(process.argv.slice(2));
 
 if (os.EOL != "\n") {
     console.error("System must be POSIX-compliant");
@@ -102,7 +105,8 @@ console.log("");
 console.log(BOLD_TEXT, "Signing index file...");
 console.log("");
 
-child_process.execSync("gpg --batch --yes --output releases/index.json.sig --armor --detach-sig releases/index.json", {stdio: "inherit"});
+child_process.execSync("gpg --list-keys", {stdio: "inherit"});
+child_process.execSync("gpg --batch --yes --local-user 'LiveG Technologies' --output releases/index.json.sig --armor --detach-sig releases/index.json", {stdio: "inherit"});
 
 console.log("");
 console.log(BOLD_TEXT, "Verifying index file signature...");
@@ -112,3 +116,21 @@ child_process.execSync("gpg --verify releases/index.json.sig releases/index.json
 
 console.log("");
 console.log(BOLD_TEXT, "Release build complete!");
+
+if (argv["ssh-upload"]) {
+    console.log("");
+    console.log(BOLD_TEXT, "Uploading to remote server via SSH...");
+    console.log("");
+
+    console.log("Upload archive");
+    child_process.execSync(`scp -r releases/${currentReleaseData.archivePath} ${argv["ssh-upload"]}:resources/osupdates/`, {stdio: "inherit"});
+
+    console.log("Upload index file");
+    child_process.execSync(`scp -r releases/index.json ${argv["ssh-upload"]}:resources/osupdates/`, {stdio: "inherit"});
+
+    console.log("Upload index file signature");
+    child_process.execSync(`scp -r releases/index.json.sig ${argv["ssh-upload"]}:resources/osupdates/`, {stdio: "inherit"});
+
+    console.log("");
+    console.log(BOLD_TEXT, "Release upload complete!");
+}

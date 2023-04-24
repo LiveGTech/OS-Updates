@@ -7,7 +7,7 @@ Licensed by the [LiveG Open-Source Licence](LICENCE.md).
 Install the Node.js packages required to build releases:
 
 ```bash
-npm install -g mkdirp
+npm install
 ```
 
 ## Building a release
