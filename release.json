@@ -23,8 +23,8 @@
     ],
     "preinstallScriptPath": "preinstall.sh",
     "postinstallScriptPath": "postinstall.sh",
-    "rebootPath": "reboot.sh",
-    "rollbackPath": "rollback.sh",
+    "rebootScriptPath": "reboot.sh",
+    "rollbackScriptPath": "rollback.sh",
     "files": [
         {
             "path": "gshell-x86_64.AppImage",

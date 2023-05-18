@@ -25,8 +25,8 @@
             ],
             "preinstallScriptPath": "preinstall.sh",
             "postinstallScriptPath": "postinstall.sh",
-            "rebootPath": "reboot.sh",
-            "rollbackPath": "rollback.sh",
+            "rebootScriptPath": "reboot.sh",
+            "rollbackScriptPath": "rollback.sh",
             "files": [
                 {
                     "path": "gshell-x86_64.AppImage",
@@ -68,7 +68,7 @@
                     "destinationPath": "/system/hello-all.txt"
                 }
             ],
-            "releasedAt": 1681923170920,
+            "releasedAt": 1684433767135,
             "archivePath": "2.tar.gz",
             "archiveMethod": "tarGzip",
             "archiveHash": "34832139191caf2e1f8b10be2c1e3e87970de7cf9551df73672fe17181c839d8",

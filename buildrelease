@@ -39,10 +39,14 @@ var fileStats = {total: 0, pass: 0, fail: 0};
 [
     currentReleaseData.preinstallScriptPath,
     currentReleaseData.postinstallScriptPath,
-    currentReleaseData.rebootPath,
-    currentReleaseData.rollbackPath,
+    currentReleaseData.rebootScriptPath,
+    currentReleaseData.rollbackScriptPath,
     ...currentReleaseData.files.map((file) => file.path)
 ].forEach(function(path) {
+    if (path == undefined) {
+        return;
+    }
+
     fileStats.total++;
 
     if (fs.existsSync(`files/${path}`)) {
