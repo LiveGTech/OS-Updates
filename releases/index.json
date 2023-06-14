@@ -68,10 +68,10 @@
                     "destinationPath": "/system/hello-all.txt"
                 }
             ],
-            "releasedAt": 1684433767135,
+            "releasedAt": 1686744784873,
             "archivePath": "2.tar.gz",
             "archiveMethod": "tarGzip",
-            "archiveHash": "34832139191caf2e1f8b10be2c1e3e87970de7cf9551df73672fe17181c839d8",
+            "archiveHash": "53f5a83bf9811213bcb686791ecd7cd61d4f5f952a4253a3bde92711d262bf19",
             "archiveHashMethod": "sha256"
         }
     ]
