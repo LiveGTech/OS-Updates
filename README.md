@@ -11,7 +11,7 @@ npm install
 ```
 
 ## Building a release
-To build a release, you'll first need to edit the `release.json` file to include the release information. You'll also need to supply some extra files (such as the gShell executable for different architectures) and put them in the `files` directory. Once complete, run:
+To build a release, you'll first need to edit the `release.json` file to include the release information (see [system update docs](https://docs.liveg.tech/?product=gshell&page=updates.md))). You'll also need to supply some extra files (such as the gShell executable for different architectures) and put them in the `files` directory. Once complete, run:
 
 ```
 ./buildrelease
