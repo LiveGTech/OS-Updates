@@ -9,27 +9,19 @@
     "minSupportedVernum": 1,
     "minRecommendedVernum": 1,
     "supportedPlatforms": [
-        "x86_64",
-        "arm64",
-        "pinephone",
-        "rpi"
+        "x86_64"
     ],
-    "packages": [],
+    "packages": [
+        {
+            "name": "liveg-hello",
+            "version": "0.1.0"
+        }
+    ],
     "files": [
         {
             "path": "gshell-x86_64.AppImage",
             "destinationPath": "/system/bin/gshell-update.AppImage",
             "condition": "['x86_64'].includes(platform)"
-        },
-        {
-            "path": "gshell-arm64.AppImage",
-            "destinationPath": "/system/bin/gshell-update.AppImage",
-            "condition": "['arm64', 'pinephone'].includes(platform)"
-        },
-        {
-            "path": "gshell-armv7l.AppImage",
-            "destinationPath": "/system/bin/gshell-update.AppImage",
-            "condition": "['rpi'].includes(platform)"
         }
     ]
 }
