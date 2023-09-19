@@ -73,6 +73,46 @@
             "archiveMethod": "tarGzip",
             "archiveHash": "53f5a83bf9811213bcb686791ecd7cd61d4f5f952a4253a3bde92711d262bf19",
             "archiveHashMethod": "sha256"
+        },
+        {
+            "version": "0.2.2",
+            "vernum": 3,
+            "circuit": "test",
+            "description": {
+                "en_GB": "This is an update used for testing purposes only. It is for the `linux-integration` branch of gShell, and is intended to test Linux user creation."
+            },
+            "fallbackLocale": "en_GB",
+            "minSupportedVernum": 1,
+            "minRecommendedVernum": 1,
+            "supportedPlatforms": [
+                "x86_64",
+                "arm64",
+                "pinephone",
+                "rpi"
+            ],
+            "packages": [],
+            "files": [
+                {
+                    "path": "gshell-x86_64.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['x86_64'].includes(platform)"
+                },
+                {
+                    "path": "gshell-arm64.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['arm64', 'pinephone'].includes(platform)"
+                },
+                {
+                    "path": "gshell-armv7l.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['rpi'].includes(platform)"
+                }
+            ],
+            "releasedAt": 1695143884948,
+            "archivePath": "3.tar.gz",
+            "archiveMethod": "tarGzip",
+            "archiveHash": "d0264f88f10c988942bb852ae65fe0be48e120afb35015b23b6ff9ec7ef6ad4f",
+            "archiveHashMethod": "sha256"
         }
     ]
 }
