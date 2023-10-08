@@ -16,8 +16,8 @@
     ],
     "packages": [
         {
-            "name": "liveg-hello",
-            "version": "0.1.0"
+            "name": "hello",
+            "version": "2.10-3"
         }
     ],
     "files": [

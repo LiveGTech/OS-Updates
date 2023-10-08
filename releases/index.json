@@ -92,8 +92,8 @@
             ],
             "packages": [
                 {
-                    "name": "liveg-hello",
-                    "version": "0.1.0"
+                    "name": "hello",
+                    "version": "2.10-3"
                 }
             ],
             "files": [
@@ -113,7 +113,7 @@
                     "condition": "['rpi'].includes(platform)"
                 }
             ],
-            "releasedAt": 1696784524911,
+            "releasedAt": 1696789316384,
             "archivePath": "3.tar.gz",
             "archiveMethod": "tarGzip",
             "archiveHash": "0dcfb44c891a9e01fac979cf1e30b309d508b03ac597ec8ebb5d50a36e602708",

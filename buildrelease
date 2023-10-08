@@ -126,8 +126,12 @@ if (argv["ssh-upload"]) {
     console.log(BOLD_TEXT, "Uploading to remote server via SSH...");
     console.log("");
 
-    console.log("Upload archive");
-    child_process.execSync(`scp -r releases/${currentReleaseData.archivePath} ${argv["ssh-upload"]}:resources/osupdates/`, {stdio: "inherit"});
+    if (!argv["upload-index-only"]) {
+        console.log("Upload archive");
+        child_process.execSync(`scp -r releases/${currentReleaseData.archivePath} ${argv["ssh-upload"]}:resources/osupdates/`, {stdio: "inherit"});
+    } else {
+        console.log("Skipping archive upload");
+    }
 
     console.log("Upload index file");
     child_process.execSync(`scp -r releases/index.json ${argv["ssh-upload"]}:resources/osupdates/`, {stdio: "inherit"});
