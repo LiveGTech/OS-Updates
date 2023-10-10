@@ -85,10 +85,7 @@
             "minSupportedVernum": 1,
             "minRecommendedVernum": 1,
             "supportedPlatforms": [
-                "x86_64",
-                "arm64",
-                "pinephone",
-                "rpi"
+                "x86_64"
             ],
             "packages": [
                 {
@@ -101,22 +98,12 @@
                     "path": "gshell-x86_64.AppImage",
                     "destinationPath": "/system/bin/gshell-update.AppImage",
                     "condition": "['x86_64'].includes(platform)"
-                },
-                {
-                    "path": "gshell-arm64.AppImage",
-                    "destinationPath": "/system/bin/gshell-update.AppImage",
-                    "condition": "['arm64', 'pinephone'].includes(platform)"
-                },
-                {
-                    "path": "gshell-armv7l.AppImage",
-                    "destinationPath": "/system/bin/gshell-update.AppImage",
-                    "condition": "['rpi'].includes(platform)"
                 }
             ],
-            "releasedAt": 1696789316384,
+            "releasedAt": 1696931593202,
             "archivePath": "3.tar.gz",
             "archiveMethod": "tarGzip",
-            "archiveHash": "0dcfb44c891a9e01fac979cf1e30b309d508b03ac597ec8ebb5d50a36e602708",
+            "archiveHash": "b9ade9c2ef0073587d297fb09a04130f4da4c0c31be4b5392396b31c456ebebf",
             "archiveHashMethod": "sha256"
         }
     ]
