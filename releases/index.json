@@ -113,10 +113,47 @@
                     "condition": "['rpi'].includes(platform)"
                 }
             ],
-            "releasedAt": 1696956013110,
+            "releasedAt": 1696962263271,
             "archivePath": "3.tar.gz",
             "archiveMethod": "tarGzip",
-            "archiveHash": "f9d171b5878b1bdb5d7c46d29271c9e77aa5e9811253d4354994a85feb49539a",
+            "archiveHash": "b0c17f4de48e1d43010c92cb430efdcb71841ca587a72fa26539b53e605afad0",
+            "archiveHashMethod": "sha256"
+        },
+        {
+            "version": "0.2.3",
+            "vernum": 4,
+            "circuit": "test",
+            "description": {
+                "en_GB": "This is an update used for testing purposes only. It is intended to test graphical Linux app integration."
+            },
+            "fallbackLocale": "en_GB",
+            "minSupportedVernum": 1,
+            "minRecommendedVernum": 1,
+            "supportedPlatforms": [
+                "x86_64"
+            ],
+            "packages": [
+                {
+                    "name": "liveg-empty",
+                    "version": "0.1.0"
+                }
+            ],
+            "preinstallScriptPath": "preinstall.sh",
+            "files": [
+                {
+                    "path": "gshell-x86_64.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['x86_64'].includes(platform)"
+                },
+                {
+                    "path": "gtk3-settings.ini",
+                    "destinationPath": "/usr/share/gtk-3.0/settings.ini"
+                }
+            ],
+            "releasedAt": 1702407857632,
+            "archivePath": "4.tar.gz",
+            "archiveMethod": "tarGzip",
+            "archiveHash": "b0e24f8ac0defac27a8ffd824e9705d03de8eba03677af0fcf6f2c958e173e08",
             "archiveHashMethod": "sha256"
         }
     ]

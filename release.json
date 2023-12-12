@@ -1,25 +1,23 @@
 {
-    "version": "0.2.2",
-    "vernum": 3,
+    "version": "0.2.3",
+    "vernum": 4,
     "circuit": "test",
     "description": {
-        "en_GB": "This is an update used for testing purposes only. It is intended to test Linux user creation and shell access via the Terminal app."
+        "en_GB": "This is an update used for testing purposes only. It is intended to test graphical Linux app integration."
     },
     "fallbackLocale": "en_GB",
     "minSupportedVernum": 1,
     "minRecommendedVernum": 1,
     "supportedPlatforms": [
-        "x86_64",
-        "arm64",
-        "pinephone",
-        "rpi"
+        "x86_64"
     ],
     "packages": [
         {
-            "name": "hello",
-            "version": "2.10-3"
+            "name": "liveg-empty",
+            "version": "0.1.0"
         }
     ],
+    "preinstallScriptPath": "preinstall.sh",
     "files": [
         {
             "path": "gshell-x86_64.AppImage",
@@ -27,14 +25,8 @@
             "condition": "['x86_64'].includes(platform)"
         },
         {
-            "path": "gshell-arm64.AppImage",
-            "destinationPath": "/system/bin/gshell-update.AppImage",
-            "condition": "['arm64', 'pinephone'].includes(platform)"
-        },
-        {
-            "path": "gshell-armv7l.AppImage",
-            "destinationPath": "/system/bin/gshell-update.AppImage",
-            "condition": "['rpi'].includes(platform)"
+            "path": "gtk3-settings.ini",
+            "destinationPath": "/system/.config/gtk-3.0/settings.ini"
         }
     ]
 }
