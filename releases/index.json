@@ -134,8 +134,8 @@
             ],
             "packages": [
                 {
-                    "name": "liveg-empty",
-                    "version": "0.1.0"
+                    "name": "hello",
+                    "version": "2.10-3"
                 }
             ],
             "preinstallScriptPath": "preinstall.sh",
@@ -150,10 +150,10 @@
                     "destinationPath": "/usr/share/gtk-3.0/settings.ini"
                 }
             ],
-            "releasedAt": 1702407857632,
+            "releasedAt": 1702492233435,
             "archivePath": "4.tar.gz",
             "archiveMethod": "tarGzip",
-            "archiveHash": "b0e24f8ac0defac27a8ffd824e9705d03de8eba03677af0fcf6f2c958e173e08",
+            "archiveHash": "37fa64e2cea346b9520f88777f0b78c67a393a4897947398f7a41b58a3393f2f",
             "archiveHashMethod": "sha256"
         }
     ]

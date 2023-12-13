@@ -13,8 +13,8 @@
     ],
     "packages": [
         {
-            "name": "liveg-empty",
-            "version": "0.1.0"
+            "name": "hello",
+            "version": "2.10-3"
         }
     ],
     "preinstallScriptPath": "preinstall.sh",
@@ -26,7 +26,7 @@
         },
         {
             "path": "gtk3-settings.ini",
-            "destinationPath": "/system/.config/gtk-3.0/settings.ini"
+            "destinationPath": "/usr/share/gtk-3.0/settings.ini"
         }
     ]
 }
