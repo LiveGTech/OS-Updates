@@ -18,9 +18,15 @@
         {
             "name": "hello",
             "version": "2.10-3"
+        },
+        {
+            "name": "raspberrypi-kernel",
+            "version": "1:1.20230405-1",
+            "condition": "['rpi'].includes(platform)"
         }
     ],
     "preinstallScriptPath": "preinstall.sh",
+    "postinstallScriptPath": "postinstall.sh",
     "files": [
         {
             "path": "gshell-x86_64.AppImage",
@@ -35,6 +41,21 @@
         {
             "path": "gshell-armv7l.AppImage",
             "destinationPath": "/system/bin/gshell-update.AppImage",
+            "condition": "['rpi'].includes(platform)"
+        },
+        {
+            "path": "xload-arm64.sh",
+            "destinationPath": "/system/scripts/xload.sh",
+            "condition": "['arm64'].includes(platform)"
+        },
+        {
+            "path": "xload-pinephone.sh",
+            "destinationPath": "/system/scripts/xload.sh",
+            "condition": "['pinephone'].includes(platform)"
+        },
+        {
+            "path": "xload-rpi.sh",
+            "destinationPath": "/system/scripts/xload.sh",
             "condition": "['rpi'].includes(platform)"
         },
         {
