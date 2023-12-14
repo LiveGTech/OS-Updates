@@ -130,7 +130,10 @@
             "minSupportedVernum": 1,
             "minRecommendedVernum": 1,
             "supportedPlatforms": [
-                "x86_64"
+                "x86_64",
+                "arm64",
+                "pinephone",
+                "rpi"
             ],
             "packages": [
                 {
@@ -146,14 +149,24 @@
                     "condition": "['x86_64'].includes(platform)"
                 },
                 {
+                    "path": "gshell-arm64.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['arm64', 'pinephone'].includes(platform)"
+                },
+                {
+                    "path": "gshell-armv7l.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['rpi'].includes(platform)"
+                },
+                {
                     "path": "gtk3-settings.ini",
                     "destinationPath": "/usr/share/gtk-3.0/settings.ini"
                 }
             ],
-            "releasedAt": 1702492233435,
+            "releasedAt": 1702579247067,
             "archivePath": "4.tar.gz",
             "archiveMethod": "tarGzip",
-            "archiveHash": "37fa64e2cea346b9520f88777f0b78c67a393a4897947398f7a41b58a3393f2f",
+            "archiveHash": "85d5b963397cd447a7cc73602ff7b50b6bceedd473a1fa19c54c551e53de8299",
             "archiveHashMethod": "sha256"
         }
     ]
