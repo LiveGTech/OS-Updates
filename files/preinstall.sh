@@ -27,8 +27,14 @@ if [ "$OLD_VERNUM" -le 4 ]; then
     sudo mkdir -p /usr/share/themes/Adapt-UI-Linux
     sudo tar -xzf Adapt-UI-Linux.tar.gz -C /usr/share/themes/Adapt-UI-Linux
 
+    if [ "$PLATFORM" == "x86_64" ]; then
+        sudo tee -a /etc/systemd/logind.conf << EOF
+HandlePowerKey=ignore
+EOF
+    fi
+
     if [ "$PLATFORM" == "rpi" ]; then
-        tee -a /boot/firmware/config.txt << EOF
+        sudo tee -a /boot/firmware/config.txt << EOF
 framebuffer_depth=32
 EOF
     fi
