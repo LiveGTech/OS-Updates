@@ -23,6 +23,10 @@ mkdir -p /usr/share/gtk-3.0
 sudo sed -i -e "s|rm /system/gshell-staging-ready|rm -f /system/gshell-staging-ready|g" /system/scripts/startup.sh
 sudo sed -i -e "s|rm gshell-old.AppImage|rm -f gshell-old.AppImage|g" /system/scripts/startup.sh
 
+sudo tee /etc/udev/rules.d/00-all-usb.rules << EOF
+SUBSYSTEM=="usb", MODE="0660", GROUP="plugdev"
+EOF
+
 if [ "$OLD_VERNUM" -le 4 ]; then
     sudo apt install -y fonts-urw-base35=20200910-7
 
