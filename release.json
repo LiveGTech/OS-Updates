@@ -44,6 +44,11 @@
             "condition": "['rpi'].includes(platform)"
         },
         {
+            "path": "xload-x86_64.sh",
+            "destinationPath": "/system/scripts/xload.sh",
+            "condition": "['x86_64'].includes(platform)"
+        },
+        {
             "path": "xload-arm64.sh",
             "destinationPath": "/system/scripts/xload.sh",
             "condition": "['arm64'].includes(platform)"
