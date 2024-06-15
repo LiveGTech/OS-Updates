@@ -39,6 +39,7 @@ if [ "$OLD_VERNUM" -le 4 ]; then
     if [ "$PLATFORM" == "x86_64" ]; then
         sudo tee -a /etc/systemd/logind.conf << EOF
 HandlePowerKey=ignore
+HandleLidSwitch=ignore
 EOF
     fi
 
