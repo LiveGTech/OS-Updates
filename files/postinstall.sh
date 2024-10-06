@@ -9,6 +9,8 @@
 
 pushd /system/storage/update
 
+sed -i "s|startx /system/scripts/xload.sh > /dev/null 2>&1|startx /system/scripts/xload.sh -- -nocursor > /dev/null 2>\\&1|" /system/scripts/startup.sh
+
 chmod +x /system/scripts/xload.sh
 
 popd
