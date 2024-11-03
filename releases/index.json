@@ -168,6 +168,99 @@
             "archiveMethod": "tarGzip",
             "archiveHash": "85d5b963397cd447a7cc73602ff7b50b6bceedd473a1fa19c54c551e53de8299",
             "archiveHashMethod": "sha256"
+        },
+        {
+            "version": "0.3.0",
+            "vernum": 5,
+            "circuit": "test",
+            "description": {
+                "en_GB": "**10th Anniversary Edition**\n\nThis update introduces a variety of new features and user experience improvements. Highlights include:\n\n* New Files and Calculator apps to enhance productivity\n* Support for running Linux apps and commands in the new Terminal app\n* Improvements to localisation support, including added support for Catalan\n* Accessibility improvements, including the new Readout Navigation screen reader\n* Web Investigator, a new developer tool for inspecting web apps and web pages in Sphere",
+                "fr_FR": "**Édition 10e anniversaire**\n\nCette mise à jour introduit une variété de nouvelles fonctionnalités et d'améliorations de l'expérience utilisateur. Les points forts incluent :\n\n* Nouvelles applications Fichiers et Calculatrice pour améliorer la productivité\n* Prise en charge de l'exécution d'applications et de commandes Linux dans la nouvelle application Terminal\n* Améliorations de la prise en charge de la localisation, y compris la prise en charge supplémentaire du catalan\n* Améliorations de l'accessibilité, notamment le nouveau lecteur d'écran « navigation par narration »\n* Enquêteur Web, un nouvel outil de développement pour inspecter les applications web et les pages web dans Sphère"
+            },
+            "fallbackLocale": "en_GB",
+            "minSupportedVernum": 1,
+            "minRecommendedVernum": 1,
+            "supportedPlatforms": [
+                "x86_64",
+                "arm64",
+                "pinephone",
+                "rpi"
+            ],
+            "packages": [
+                {
+                    "name": "libxkbcommon0",
+                    "version": "1.5.0-1"
+                },
+                {
+                    "name": "speech-dispatcher",
+                    "version": "0.11.4-2"
+                },
+                {
+                    "name": "espeak",
+                    "version": "1.48.15+dfsg-3"
+                },
+                {
+                    "name": "pipewire-audio",
+                    "version": "0.3.65-3+deb12u1"
+                },
+                {
+                    "name": "raspberrypi-kernel",
+                    "version": "1:1.20230405-1",
+                    "condition": "['rpi'].includes(platform)"
+                }
+            ],
+            "preinstallScriptPath": "preinstall.sh",
+            "postinstallScriptPath": "postinstall.sh",
+            "files": [
+                {
+                    "path": "gshell-x86_64.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['x86_64'].includes(platform)"
+                },
+                {
+                    "path": "gshell-arm64.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['arm64', 'pinephone'].includes(platform)"
+                },
+                {
+                    "path": "gshell-armv7l.AppImage",
+                    "destinationPath": "/system/bin/gshell-update.AppImage",
+                    "condition": "['rpi'].includes(platform)"
+                },
+                {
+                    "path": "xload-x86_64.sh",
+                    "destinationPath": "/system/scripts/xload.sh",
+                    "condition": "['x86_64'].includes(platform)"
+                },
+                {
+                    "path": "xload-arm64.sh",
+                    "destinationPath": "/system/scripts/xload.sh",
+                    "condition": "['arm64'].includes(platform)"
+                },
+                {
+                    "path": "xload-pinephone.sh",
+                    "destinationPath": "/system/scripts/xload.sh",
+                    "condition": "['pinephone'].includes(platform)"
+                },
+                {
+                    "path": "xload-rpi.sh",
+                    "destinationPath": "/system/scripts/xload.sh",
+                    "condition": "['rpi'].includes(platform)"
+                },
+                {
+                    "path": "os-release",
+                    "destinationPath": "/etc/os-release"
+                },
+                {
+                    "path": "gtk3-settings.ini",
+                    "destinationPath": "/usr/share/gtk-3.0/settings.ini"
+                }
+            ],
+            "releasedAt": 1730657146265,
+            "archivePath": "5.tar.gz",
+            "archiveMethod": "tarGzip",
+            "archiveHash": "cb3bf97fdd0f2d256b7f4b71049d4aef8e73109538945210a119d7af2525a828",
+            "archiveHashMethod": "sha256"
         }
     ]
 }
