@@ -201,7 +201,8 @@
                 },
                 {
                     "name": "pipewire-audio",
-                    "version": "0.3.65-3+deb12u1"
+                    "version": "0.3.65-3+deb12u1",
+                    "condition": "platform != 'pinephone'"
                 },
                 {
                     "name": "raspberrypi-kernel",
@@ -256,10 +257,10 @@
                     "destinationPath": "/usr/share/gtk-3.0/settings.ini"
                 }
             ],
-            "releasedAt": 1730657146265,
+            "releasedAt": 1730751971301,
             "archivePath": "5.tar.gz",
             "archiveMethod": "tarGzip",
-            "archiveHash": "cb3bf97fdd0f2d256b7f4b71049d4aef8e73109538945210a119d7af2525a828",
+            "archiveHash": "511f5cf5d1e40859d23c264512ca1a053dd1e62b682fc080a29046faca9643b5",
             "archiveHashMethod": "sha256"
         }
     ]
