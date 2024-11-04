@@ -239,10 +239,10 @@
                     "destinationPath": "/usr/share/gtk-3.0/settings.ini"
                 }
             ],
-            "releasedAt": 1730753482585,
+            "releasedAt": 1730756266912,
             "archivePath": "5.tar.gz",
             "archiveMethod": "tarGzip",
-            "archiveHash": "511f5cf5d1e40859d23c264512ca1a053dd1e62b682fc080a29046faca9643b5",
+            "archiveHash": "a94e79b89981bd59bc3e760e01b455a4ae4714664d3dc52d3ff2609176c779bf",
             "archiveHashMethod": "sha256"
         }
     ]
