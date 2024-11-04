@@ -188,26 +188,8 @@
             ],
             "packages": [
                 {
-                    "name": "libxkbcommon0",
-                    "version": "1.5.0-1"
-                },
-                {
-                    "name": "speech-dispatcher",
-                    "version": "0.11.4-2"
-                },
-                {
-                    "name": "espeak",
-                    "version": "1.48.15+dfsg-3"
-                },
-                {
-                    "name": "pipewire-audio",
-                    "version": "0.3.65-3+deb12u1",
-                    "condition": "platform != 'pinephone'"
-                },
-                {
-                    "name": "raspberrypi-kernel",
-                    "version": "1:1.20230405-1",
-                    "condition": "['rpi'].includes(platform)"
+                    "name": "hello",
+                    "version": "2.10-3"
                 }
             ],
             "preinstallScriptPath": "preinstall.sh",
@@ -257,7 +239,7 @@
                     "destinationPath": "/usr/share/gtk-3.0/settings.ini"
                 }
             ],
-            "releasedAt": 1730751971301,
+            "releasedAt": 1730753482585,
             "archivePath": "5.tar.gz",
             "archiveMethod": "tarGzip",
             "archiveHash": "511f5cf5d1e40859d23c264512ca1a053dd1e62b682fc080a29046faca9643b5",
