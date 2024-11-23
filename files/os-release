@@ -3,6 +3,6 @@ VERSION="0.3.0"
 ID="livegos"
 ID_LIKE="debian"
 PRETTY_NAME="LiveG OS 0.3.0"
-VERSION_ID=1
+VERSION_ID=6
 HOME_URL="https://liveg.tech/os"
 SUPPORT_URL="https://docs.liveg.tech/?product=os"

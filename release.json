@@ -1,6 +1,6 @@
 {
     "version": "0.3.0",
-    "vernum": 5,
+    "vernum": 6,
     "circuit": "test",
     "description": {
         "en_GB": "**10th Anniversary Edition**\n\nThis update introduces a variety of new features and user experience improvements. Highlights include:\n\n* New Files and Calculator apps to enhance productivity\n* Support for running Linux apps and commands in the new Terminal app\n* Improvements to localisation support, including added support for Catalan\n* Accessibility improvements, including the new Readout Navigation screen reader\n* Web Investigator, a new developer tool for inspecting web apps and web pages in Sphere",
